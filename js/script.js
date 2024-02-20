@@ -13,6 +13,9 @@ const { createApp } = Vue
     data() {
         return {
 
+            newTask:'',
+
+            // lista di oggetti delle mansioni da fare
             listaMansioni: [
                 {
                     text: "Fare la spesa",
@@ -42,9 +45,37 @@ const { createApp } = Vue
 
         removeToDo(index){
 
+            // rimozione dell'oggetto in posizione index 
             this.listaMansioni.splice(index,1);
 
         },
+
+
+
+        addTask(){
+            // controllo se la casella di testo non è vuota
+            if(this.newTask != ""){
+
+                // inizializzo un nuovo oggetto
+                const newItem = {
+
+                    // do il valore della casella di testo all'attributo text
+                    text: this.newTask,
+    
+                    done: false,
+    
+                };
+    
+                // inserisco il nuovo oggetto nell'array
+                this.listaMansioni.push(newItem);
+    
+                // resetto la casella di testo
+                this.newTask='';
+
+            }
+
+            console.log(this.listaMansioni)
+        }
 
     }
   }).mount('#app');
