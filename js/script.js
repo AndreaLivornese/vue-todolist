@@ -11,8 +11,31 @@ const { createApp } = Vue
 
   createApp({
     data() {
-      return {
+        return {
 
-      }
+            listaMansioni: [
+                {
+                    text: "Fare la spesa",
+                    done: false,
+                },
+                {
+                    text: "Pagare le bollette",
+                    done: true,
+                },
+                {
+                    text: "Lavare i piatti",
+                    done: false,
+                },
+                {
+                    text: "Passare l'aspirapolvere",
+                    done: true,
+                },
+                {
+                    text: "Portare fuori la spazzatura",
+                    done: false,
+                },
+            ],
+
+        }
     }
   }).mount('#app');
