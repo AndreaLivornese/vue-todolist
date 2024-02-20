@@ -75,6 +75,12 @@ const { createApp } = Vue
             }
 
             console.log(this.listaMansioni)
+        },
+
+        doneOrNot(statusTask, index){
+
+            // nego il valore "done" dell'oggetto selezionato  da true a false o viceversa
+            this.listaMansioni[index].done = !statusTask;
         }
 
     }

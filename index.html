@@ -30,7 +30,15 @@
             <div class="col-6">
                 <label for="new-task" class="form-label">Inserisci una mansione da fare.</label>
                 <div class="input-group mb-3">
-                    <input v-model="newTask" id="new-task" type="text" class="form-control" placeholder="Es. Hackerare il sito di Boolean :/" aria-label="Input ToDo list" aria-describedby="button-addon">
+                    <!-- gestisce le nuove task -->
+                    <input 
+                    v-model="newTask" 
+                    @keyup.enter="addTask()"  
+                    id="new-task" type="text" 
+                    class="form-control" 
+                    placeholder="Es. Hackerare il sito di Boolean :/" 
+                    aria-label="Input ToDo list" aria-describedby="button-addon"
+                    >
                     <button class="btn btn-outline-secondary" type="button" id="button-addon" @click="addTask()">Aggiungi</button>
                 </div>
             </div>
@@ -42,11 +50,16 @@
 
                     <!-- creo per ogni oggetto presente nell'array una "li" -->
                     <li v-for="(mansioneCorrente, index) in listaMansioni"  
-                    class="list-group-item d-flex justify-content-between align-items-center "
+                    class="list-group-item d-flex justify-content-between align-items-center"
                     >
                         <!-- se l'attributo "done" è uguale a "true" aggiungo la classe "done" -->
-                        <span :class="mansioneCorrente.done == true ? 'done' : '' ">{{mansioneCorrente.text}}</span>
-                        <i class="fa-solid fa-xmark" @click="removeToDo(index)"></i>
+                        <span class="flex-grow-1"
+                        @click="doneOrNot(mansioneCorrente.done, index)"
+                        :class="mansioneCorrente.done ? 'done' : ''"
+                        >
+                            {{mansioneCorrente.text}} 
+                        </span>
+                        <i class="fa-solid fa-xmark cross" @click="removeToDo(index)"></i>
                     </li>
 
                 </ul>

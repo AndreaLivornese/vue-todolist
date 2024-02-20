@@ -2,8 +2,12 @@
     text-decoration: line-through;
 }
 
+li span{
+    cursor: pointer;
+}
 
-ul .fa-xmark{
+
+ul .cross{
     color:red;
     font-size: 1.4em;
 
