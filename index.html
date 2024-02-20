@@ -23,19 +23,23 @@
 
     <div id="app" class="">
 
-        <div class="container">
+        <div class="container d-flex flex-column  align-items-center ">
             
             <h1 class="mb-5">TO DO LIST</h1>
 
             <div class="col-6">
-                <ul class="list-group">
-                    <li v-for="mansioneCorrente in listaMansioni"  
-                    class="list-group-item"
-                    :class="mansioneCorrente.done == true ? 'done' : '' "
+                <ul v-if="listaMansioni.length > 0" class="list-group">
+                    <li v-for="(mansioneCorrente, index) in listaMansioni"  
+                    class="list-group-item d-flex justify-content-between align-items-center "
                     >
-                        {{mansioneCorrente.text}}
+                        <span :class="mansioneCorrente.done == true ? 'done' : '' ">{{mansioneCorrente.text}}</span>
+                        <i class="fa-solid fa-xmark" @click="removeToDo(index)"></i>
                     </li>
                 </ul>
+                <div v-else class="text-center p-4 bg-success text-white">
+                    Hai terminato le mansioni per il momento. Goditi un momento di relax (nel chillong).
+                    <i class="fa-solid fa-otter"></i>
+                </div>
             </div>
 
         </div>

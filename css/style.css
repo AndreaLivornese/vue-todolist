@@ -1,5 +1,11 @@
 .done{
     text-decoration: line-through;
-    
-    
+}
+
+
+ul .fa-xmark{
+    color:red;
+    font-size: 1.4em;
+
+    cursor: pointer;
 }

@@ -37,5 +37,14 @@ const { createApp } = Vue
             ],
 
         }
+    },
+    methods: {
+
+        removeToDo(index){
+
+            this.listaMansioni.splice(index,1);
+
+        },
+
     }
   }).mount('#app');
